@@ -1,23 +1,20 @@
 //
-//  ViewController.swift
+//  ViewControllerReset.swift
 //  InstaISIL
 //
-//  Created by user178067 on 10/9/20.
+//  Created by user178067 on 10/13/20.
 //  Copyright © 2020 isil. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var logoDataView: UIView!
-    @IBOutlet weak var loginDataView: UIView!
-    @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+class ViewControllerReset: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var createAccountButton: UIButton!
-    @IBOutlet weak var forgottenPasswordButton: UIButton!
-    @IBOutlet weak var initSessionButton: UIButton!
+    @IBOutlet weak var logoDataView: UIView!
+    @IBOutlet weak var resetDataView: UIView!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var sendEmailButton: UIButton!
     
     let primaryColor = UIColor(red: 0/255, green: 174/255, blue:239/255, alpha: 0.8)
     let secundaryColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.8)
@@ -26,20 +23,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginDataView.layer.cornerRadius = 5
-        loginDataView.clipsToBounds = true
+        resetDataView.layer.cornerRadius = 5
+        resetDataView.clipsToBounds = true
         
-        forgottenPasswordButton.setTitleColor(primaryColor, for: .normal)
-
-        initSessionButton.backgroundColor = primaryColor
-        initSessionButton.setTitleColor(secundaryColor, for: .normal)
-        initSessionButton.layer.cornerRadius = 4
-        initSessionButton.clipsToBounds = true
+        sendEmailButton.backgroundColor = primaryColor
+        sendEmailButton.setTitleColor(secundaryColor, for: .normal)
+        sendEmailButton.layer.cornerRadius = 4
+        sendEmailButton.clipsToBounds = true
         
-        createAccountButton.setTitleColor(primaryColor, for: .normal)
-        
-        self.userTextField.delegate = self
-        self.passwordTextField.delegate = self
+        self.emailTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,9 +55,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        userTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
         return(true)
     }
-}
 
+
+}
